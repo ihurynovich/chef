@@ -13,7 +13,7 @@ package "tar" do
   action :install
 end
 
-package "tar" do
+package "unzip" do
   action :install
 end
 
