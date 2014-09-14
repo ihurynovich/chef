@@ -1,0 +1,5 @@
+default['jboss']['jboss_home'] = "/opt/"
+default['jboss']['version'] = "7.1.1"
+default['jboss']['dl_url'] = "http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz"
+default['jboss']['jboss_user'] = "jboss"
+default['jboss']['jboss_app'] = "http://www.cumulogic.com/download/Apps/testweb.zip"
