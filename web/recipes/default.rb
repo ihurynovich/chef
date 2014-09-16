@@ -6,11 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
+if "#{node[:web_server_type]}"==('web_nginx')
 cookbook_file "nginx.repo" do
 path "/etc/yum.repos.d/nginx.repo"
   owner 'root'
   group 'root'
+end
+elsif "#{node[:web_server_type]}"==('web_apache')
+  puts "Apache web server will be installed"
 end
 
 web "web_server_install" do
@@ -29,10 +32,10 @@ web "web_server_stop" do
 end
 
 if "#{node[:web_server_type]}"==('web_nginx')
-  web "nginx_setup" do
-    provider :web_nginx
-    action :setup_web_server
-  end
+web "nginx_setup" do
+  provider :web_nginx
+  action :setup_web_server
+end
 elsif "#{node[:web_server_type]}"==('web_apache')
   puts "Apache web server is already set up"
 end
