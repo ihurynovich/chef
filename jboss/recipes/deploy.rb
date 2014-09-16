@@ -3,7 +3,14 @@
 jboss_home = node['jboss']['jboss_home']
 
 remote_file "/tmp/hudson.zip" do
-  source node[:app_repo]
+  source "#{node[:app_repo]}"
+end
+
+directory '/opt/jboss/standalone/deployments/hudson' do
+  owner 'root'
+  group 'root'
+  mode 0755
+  action :create
 end
 
 bag = data_bag_item("jboss", "hudson")
